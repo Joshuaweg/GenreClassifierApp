@@ -1,6 +1,7 @@
 # Genre Classifier - Interpretable Book Genre Classification
 
 A deep learning project that classifies book descriptions into Fantasy, Fiction, or Nonfiction genres with built-in model interpretability.
+![image](https://github.com/user-attachments/assets/31eebc2f-41fd-4ebd-889a-139aed6ec591)
 
 ## Overview
 
@@ -22,6 +23,7 @@ This project demonstrates an interpretable machine learning application that use
 The model uses a simple feedforward neural network that leverages learnable bag-of-word embeddings. The core assumption is that collections of words in book descriptions create unique vectors for each book, allowing the model to establish clear decision boundaries between genres.
 
 ### Interpretability Methods
+![image](https://github.com/user-attachments/assets/172bb0aa-b69d-4a57-bcb6-b6eb2ec5ad0c)
 
 The Flask web application provides multiple techniques for understanding model decisions:
 
@@ -38,9 +40,10 @@ The Flask web application provides multiple techniques for understanding model d
    - Examines the model's behavior along a path from a baseline to the input
 
 ### Visualization
+![image](https://github.com/user-attachments/assets/2f2a12ce-e0be-4474-b862-f1de10b898f6)
 
 - **t-SNE Projections**: Visualize the training data distribution based on the trained classifier
-- **Nearest Neighbors**: Display top 10 most similar books from training data
+- **Nearest Neighbors**: Display Top 10 most similar books from training data
 - **Farthest Neighbors**: Show 10 most dissimilar books for contrast
 
 ## Getting Started
