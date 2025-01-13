@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div style="background-color:floralwhite; padding: 10px">
+    <h2>About Page</h2>
+
+
+    <h3>About The Genre Classifier</h3>
+
+    <p style="font-size:20px">Welcome to the Genre Classifier, a state-of-the-art web application designed to help you identify the genre of any book based solely on its description. Whether you're a reader trying to categorize a book, a writer seeking to understand the genre of your own work, or just someone curious about the power of neural networks, our app is here to assist you.</p>
+
+    <h3>How Does It Work?</h3>
+
+    <p style="font-size:20px">At the heart of our Genre Classifier is a sophisticated neural network. This advanced machine learning model has been trained on countless book descriptions provided by both <a href="https://www.kaggle.com/datasets/ishikajohari/best-books-10k-multi-genre-data">Kaggle and Goodreads</a>, enabling it to make accurate genre classifications. Simply input a book description, and our app will classify it into one of three categories: Fantasy, Fiction, or Nonfiction.</p>
+
+    <h3>Feature Attribution: Understand the Decision</h3>
+
+    <p style="font-size:20px">But we didn't stop at just classifying genres. We understand that knowing the <i>'why'</i> behind a decision can be just as important as the decision itself. That's why our Genre Classifier also provides <b>Feature Attribution</b>. This means that after classifying a book's genre, our app will <u>explain which specific words or phrases</u> in the description contributed most to its decision. This level of transparency not only helps users trust our classifier but also provides valuable insights into the characteristics of each genre.</p>
+
+    <h3>Join Us in the World of Explainable AI</h3>
+
+    <p style="font-size:20px">We invite you to explore, test, and enjoy our Genre Classifier. Dive deep into the world of genres and discover the intricate patterns and features that define Fantasy, Fiction, and Nonfiction. Happy classifying!</p>
+
+    </div>
+    {% endblock %}

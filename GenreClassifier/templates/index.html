@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class="center" style="padding: 25px;color:white">Genre Classfier</h2>
+<div style="background-color:floralwhite; padding: 10px">
+
+    <p style="font-size:26px; border:double">
+        This is a Book Genre Classifier. Please provide a book description and the actual genre for comparison on the predicted genre from the classifier.
+        If you need help finding a book to use go to <a href="https://www.amazon.com/b?node=283155" target="_blank">Amazon</a> or <a href="https://www.goodreads.com/genres/" target="_blank">Goodreads</a> to find a book.
+    </p>
+    <!-- target_category=["fantasy","science","crime","history","horror","thriller","psychology","romance","sports","travel"]-->
+    <form class="container" action="/classify" method="post" onsubmit="setDefaultTitle()">
+        <div class="form-group">
+            <label>Genre</label>
+            <select name="genre" class="form-control">
+                <option value="fantasy">Fantasy</option>
+                <option value="fiction">Fiction</option>
+                <option value="nonfiction">Nonfiction</option>
+                
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" id="title" name="title" class="form-control container-fluid" rows="12" placeholder="Title..."></input>
+        </div>
+        <div class="form-group">
+            <label>Book Description</label>
+            <textarea name="description" class="form-control container-fluid" rows="12" placeholder="Add Book Description Here..."></textarea>
+        </div>
+        <div class="form-group py-5">
+            <label>Method of Explaination</label>
+            <select name="method" class="form-control">
+                <option value=1>LIME (Local Interpretable Model-agnostic Explanations)</option>
+                <option value=2>SHAP--sample=1000 (Shaply Additive Explanations) </option>
+                <option value=3>LRP (Layerwise Relevance Propagation)</option>
+                <option value=4>Integrated Gradients</option>
+        </div>
+        <input id="submitbutton" class="btn btn-primary btn-lg" type="submit" value="Classify Genre" />
+    </form>
+</div>
+<script>
+    function setDefaultTitle() {
+    const titleInput = document.getElementById('title');
+    if (titleInput.value.trim() === '') {
+        titleInput.value = 'No Title'; // Set your default value here
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,10 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+Disallow: /classify
+
+User-agent: *
+Allow: /about
+Allow: /contact
+Allow: /home
+
+Sitemap: https://genreclassifier-3e534dc70a00.herokuapp.com/sitemap.xml

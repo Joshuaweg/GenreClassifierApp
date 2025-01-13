@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+</head>
+
+<body  style="background-color:teal; padding:20px">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" >
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand"><img src="/static/images/logo.svg" alt="Analystrix" style=" width:200px;"></a>
+            </div>
+            <div class="navbar-collapse collapse align-m">
+                <ul class="nav navbar-nav align-m">
+                    <li><a class="align-m" href="{{ url_for('home') }}" style="font-size:28px; padding-top:100px">Home</a></li>
+                    <li><a class="align-m" href="{{ url_for('about') }}" style="font-size: 28px; padding-top: 100px">About</a></li>
+                    <li><a class="align-m" href="{{ url_for('contact') }}" style="font-size: 28px; padding-top: 100px">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content col" style="padding-top:150px">
+        {% block content %}{% endblock %}
+        <hr />
+        <footer style="color:white">
+            <p>&copy; {{ year }} -Analystrix</p>
+        </footer>
+    </div>
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    <script>
+        var dots = 0;
+        var access = false;
+        $('#submitbutton').on('click', function () {
+            setInterval(type, 600);
+        })
+        $('#colorblind').on('click', function () {
+            colorblind();
+        })
+        
+        function type() {
+            if (dots%4 == 0) {
+                $('#submitbutton').attr("value", "Loading");
+                
+            }
+            if (dots%4 == 1) {
+                $('#submitbutton').attr("value", "Loading.");
+                
+            }
+            if (dots%4 == 2) {
+                $('#submitbutton').attr("value", "Loading..");
+                
+            }
+
+            else {
+                $('#submitbutton').attr("value", "Loading...");
+                
+            }
+            dots++;
+        }
+        function colorblind() {
+            var prediction = document.querySelector("#pred");
+            var pos = document.querySelectorAll(".pos");
+            var neg = document.querySelectorAll(".neg");
+            var labelForPred = document.querySelector(".forpred");
+            var labelAgainstPred = document.querySelector(".againstpred");
+            if (access) {
+                document.body.style.backgroundColor = "teal";
+                if (prediction.innerHTML.includes("INCORRECT")) {
+                    prediction.style.color = "red";
+                }
+                else {
+                    prediction.style.color = "green";
+                }
+                labelForPred.style.backgroundColor = 'limegreen';
+                labelAgainstPred.style.backgroundColor = 'red';
+                labelAgainstPred.style.color = 'white';
+                labelForPred.style.color = 'white';
+                labelForPred.innerHTML = "green";
+                labelAgainstPred.innerHTML = "red";
+                pos.forEach(function (x) {
+                    let currentColor = window.getComputedStyle(x).backgroundColor;
+                    let alpha = currentColor.includes('rgba') ? currentColor.slice(currentColor.lastIndexOf(',') + 1, currentColor.length - 1).trim() : '1';
+                    x.style.backgroundColor = `rgba(0,255,0,${alpha})`;
+
+                });
+                neg.forEach(function (x) {
+                    let currentColor = window.getComputedStyle(x).backgroundColor;
+                    let alpha = currentColor.includes('rgba') ? currentColor.slice(currentColor.lastIndexOf(',') + 1, currentColor.length - 1).trim() : '1';
+                    x.style.backgroundColor = `rgba(255,0,0,${alpha})`;
+
+                });
+                access = !access;
+            }
+            else {
+                document.body.style.backgroundColor = "purple";
+                if (prediction.innerHTML.includes("INCORRECT")) {
+                    prediction.style.color = `rgba(255,0,255,1)`;
+                }
+                else {
+                    prediction.style.color = `rgba(0,128,128,1)`;
+                }
+                labelForPred.style.backgroundColor = `rgba(0,128,128,1)`;
+                labelAgainstPred.style.backgroundColor = `rgba(255,0,255,1)`;
+                labelAgainstPred.style.color = 'black';
+                labelForPred.style.color = 'black';
+                labelForPred.innerHTML = "teal";
+                labelAgainstPred.innerHTML = "purple";
+                pos.forEach(function (x) {
+                    let currentColor = window.getComputedStyle(x).backgroundColor;
+                    let alpha = currentColor.includes('rgba') ? currentColor.slice(currentColor.lastIndexOf(',') + 1, currentColor.length - 1).trim() : '1';
+                    x.style.backgroundColor = `rgba(255,0,255,${alpha})`;
+
+                });
+                neg.forEach(function (x) {
+                    let currentColor = window.getComputedStyle(x).backgroundColor;
+                    let alpha = currentColor.includes('rgba') ? currentColor.slice(currentColor.lastIndexOf(',') + 1, currentColor.length - 1).trim() : '1';
+                    x.style.backgroundColor = `rgba(0,128,128,${alpha})`;
+
+                });
+                access = !access;
+            }
+        }
+
+        
+    </script>
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

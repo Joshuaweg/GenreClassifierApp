@@ -1,0 +1,41 @@
+# Virtual Environment
+env/
+venv/
+.env/
+
+# Data files
+data/
+*.gz
+*.zip
+*.tar
+*.pkl
+
+# Compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Object files and build directories
+obj/
+build/
+dist/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Model checkpoints and large files
+*.pth
+*.h5
+*.ckpt
+*.model
+
+# Logs
+logs/
+*.log
+
+# OS specific files
+.DS_Store
+Thumbs.db

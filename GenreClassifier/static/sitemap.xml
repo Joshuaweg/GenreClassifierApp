@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http:www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.analystrix.com</loc>
+    <lastmod>2023-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.analystrix.com" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://genreclassifier-3e534dc70a00.herokuapp.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://genreclassifier-3e534dc70a00.herokuapp.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://genreclassifier-3e534dc70a00.herokuapp.com/home" />
+  </url>
+ </urlset>
